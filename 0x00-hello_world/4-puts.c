@@ -1,5 +1,9 @@
 #include <studio.h>
-#include <string.h>
+
+/**
+*main-prints the size of various types
+*Return: 0 if excited properly, non-zero otherwise
+*/
 
 int main(void)
 {
