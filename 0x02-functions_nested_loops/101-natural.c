@@ -24,5 +24,5 @@ sum5 = sum5 + i;
 }
 sum5 = sum5 + i;
 printf("%lu\n", sum);
-return (0);
+return(0);
 }
