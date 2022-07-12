@@ -11,7 +11,7 @@ int len = 0;
 
 if (s)
 {
-while (*(s +len))
+while (*(s + len))
 ++len;
 }
 return (len);
