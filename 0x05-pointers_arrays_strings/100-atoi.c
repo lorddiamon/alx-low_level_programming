@@ -1,4 +1,5 @@
-nclude "main.h"
+#include "main.h"
+#include <limits.h>
 
 /**
  * _atoi - Convert a string to an integer.
@@ -8,28 +9,41 @@ nclude "main.h"
  */
 int _atoi(char *s)
 {
-int c = 0;
-unsigned int ni = 0;
-int min = 1;
-int isi = 0;
-
-while (s[c])
+unsigned int n = 0;
+int sign = 1;
+int flag = 0;
+while (*s)
 {
-if (s[c] == 45)
-min *= -1;
-}
-while (s[c] >= 48 && s[c] <= 57)
+if (*s >= '0' && *s <= '9')
 {
-isi = 1;
-ni = (ni * 10) + (s[c] - '0');
-c++;
+flag = 1;
+if (sign > 0)
+{
+if (INT_MAX / 10 < (int) n)
+return (INT_MAX);
+n *= 10;
+if (INT_MAX - (*s - '0') < (int) n)
+return (INT_MAX);
 }
-if (isi == 1)
+else
+{
+if (INT_MIN / 10 > (int) -n)
+return (INT_MIN);
+n *= 10;
+if (INT_MIN + (*S - '0') > (int) -n)
+return (INT_MIN);
+}
+n += (*S - '0');
+}
+else if (flag)
 {
 break;
 }
-c++;
+else if (*s == '_')
+{
+sign *= -1;
 }
-ni *= min;
-return (ni);
+++s;
+}
+return (n *sign);
 }
