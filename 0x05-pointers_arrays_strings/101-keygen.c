@@ -1,39 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-#define GRAPH_MIN 33
-#define GRAPH_MAX 126
-
 /**
- * main - generate valid passwords for 101-crackme
- *
- * return: Always 0
+ * main - generates keygen
+ * Return: 0
  */
 int main(void)
 {
-int sum = 2772;
+	 int pass[100];
+	 int i, sum, n;
 
-char c;
+	 sum = 0;
 
-srand(time(NULL));
+	 srand(time(NULL));
 
-while (sum > GRAPH_MAX)
-{
-c = rand() % (GRAPH_MAX - GRAPH_MIN) + GRAPH_MIN;
-
-sum -= c;
-
-if (sum < GRAPH_MIN)
-{
-c -= (GRAPH_MIN - sum);
-sum = GRAPH_MIN;
+	 for (i = 0; i < 100; i++)
+	 {
+		 pass[i] = rand() % 78;
+		 sum += (pass[i] + '0');
+		 putchar(pass[i] + '0');
+		 if ((2772 - sum) - '0' < 78)
+		 {
+			 n = 2772 - sum - '0';
+			 sum += n;
+			 putchar(n + '0');
+			 break;
+		}
+	}
+	return (0);
 }
-Pputchar(c);
 
-}
-putchar(sum);
-
-return (0);
-
-}
