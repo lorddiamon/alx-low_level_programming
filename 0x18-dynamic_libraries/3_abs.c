@@ -12,8 +12,3 @@ int _abs(int n)
 	else
 		return (n * -1);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Pri
